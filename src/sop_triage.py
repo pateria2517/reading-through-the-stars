@@ -1,5 +1,9 @@
 import pandas as pd
-from src.diagnostic_analytics import FAILURE_MODES
+
+if __package__:
+    from .diagnostic_analytics import FAILURE_MODES
+else:
+    from diagnostic_analytics import FAILURE_MODES
 
 SOP_PLAYBOOK = {
     "Cold Food": {

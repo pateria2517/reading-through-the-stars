@@ -2,13 +2,23 @@ import io
 import json
 import re
 import pandas as pd
-from src.schema_resolver import (
-    resolve_columns,
-    normalize_rating_scale,
-    extract_sku,
-    derive_temporal_features,
-    parse_timestamps,
-)
+
+if __package__:
+    from .schema_resolver import (
+        derive_temporal_features,
+        extract_sku,
+        normalize_rating_scale,
+        parse_timestamps,
+        resolve_columns,
+    )
+else:
+    from schema_resolver import (
+        derive_temporal_features,
+        extract_sku,
+        normalize_rating_scale,
+        parse_timestamps,
+        resolve_columns,
+    )
 
 
 def load_raw_file(file_bytes: bytes, filename: str) -> pd.DataFrame:
